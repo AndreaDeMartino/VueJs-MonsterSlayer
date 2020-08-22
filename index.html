@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Monster Slayer</title>
+    <script src="https://npmcdn.com/vue/dist/vue.js"></script>
+    <link rel="stylesheet" href="css/foundation.min.css">
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+<div id="app">
+
+    <!-- Health Sections -->
+    <section class="row">
+        <div class="small-6 columns">
+            <h1 class="text-center">YOU</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" :style="{'width': healthPlayer + '%', 'background-color': 'green','color' : 'white'}">
+                    {{ healthPlayer }}
+                </div>
+            </div>
+        </div>
+        <div class="small-6 columns">
+            <h1 class="text-center">MONSTER</h1>
+            <div class="healthbar">
+                <div class="healthbar text-center" :style="{'width': healthMonster + '%', 'background-color': 'green', 'color' : 'white'}">
+                    {{ healthMonster }}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- New Game -->
+    <section class="row controls">
+        <div class="small-12 columns">
+            <button id="start-game" @click="newGame()">START NEW GAME</button>
+        </div>
+    </section>
+
+    <!-- Cta -->
+    <section class="row controls">
+        <div class="small-12 columns">
+            <button id="attack" @click="attack()">ATTACK</button>
+            <button id="special-attack" @click="specialAtk()">SPECIAL ATTACK</button>
+            <button id="heal" @click="heal()">HEAL</button>
+            <button id="give-up" @click="giveUp()">GIVE UP</button>
+        </div>
+    </section>
+
+    <!-- Log -->
+    <section class="row log">
+        <div class="small-12 columns log-container">
+            
+            <template v-if="logDamage.length > 0">
+                <ul>
+                    <li v-for="log in logDamage" :class="log.type">
+                        {{ log.text }}
+                    </li>
+                </ul>
+            </template>
+
+        </div>
+    </section>
+
+</div>
+
+<!-- Js -->
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="script/main.js"></script>
+</body>
+</html>
