@@ -20,14 +20,14 @@ new Vue({
       // Remove Health
       who == 'player' ? (this.healthMonster -= dmg) : (this.healthPlayer -= dmg);
       // Save atk Log
-      this.logDamage.push({
+      this.logDamage.unshift({
         type: (who + '-turn'),
         damage: dmg,
         text: (who.toUpperCase() + ' HITS THE ' + (who == "player" ? 'MONSTER' : 'PLAYER') + ' FOR ' + dmg + '%'),
       });
       if(heal){
-        this.logDamage[this.logDamage.length -1].text = 'PLAYER HEAL FOR ' + (dmg * -1) + '%';
-        this.logDamage[this.logDamage.length -1].type = "player-turn";
+        this.logDamage[0].text = 'PLAYER HEAL FOR ' + (dmg * -1) + '%';
+        this.logDamage[0].type = "player-turn";
       }
     },
     whoWin(){
