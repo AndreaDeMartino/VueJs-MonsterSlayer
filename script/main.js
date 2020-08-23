@@ -69,6 +69,7 @@ new Vue({
     },
     giveUp(){
       this.reset('Monster Win');
+      this.gameIsRunning = false;
     },
     reset (text){
       this.logDamage = [];
