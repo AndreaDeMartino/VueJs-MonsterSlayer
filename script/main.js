@@ -11,7 +11,7 @@ new Vue({
     attack (){
       if (this.healthPlayer > 0 && this.healthMonster > 0){
         this.whoAttack ('player', ( Math.floor(Math.random() * 10) + 1) );
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 10) + 1) );
+        this.whoAttack ('monster', ( Math.floor(Math.random() * 15) + 3) );
         this.whoWin();
         this.counter--;
       }
@@ -47,7 +47,7 @@ new Vue({
     specialAtk (){
       if (this.counter <= 0){
         this.whoAttack ('player', 20 );
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 10)) + 1 );
+        this.whoAttack ('monster', ( Math.floor(Math.random() * 15)) + 3 );
         this.whoWin();
         this.counter = 3;
       } else {
@@ -57,7 +57,7 @@ new Vue({
     heal (){
       if (this.healthPlayer < 100){
         this.whoAttack ('monster', ( Math.floor(Math.random() * 10) * -1),heal);
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 10)) + 1 );
+        this.whoAttack ('monster', ( Math.floor(Math.random() * 15)) + 3 );
         this.whoWin();
       } else {
         alert('Your Healt is already full')
