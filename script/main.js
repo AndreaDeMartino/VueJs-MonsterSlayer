@@ -18,7 +18,7 @@ new Vue({
     },
     whoAttack (who,dmg,heal){
       // Remove Health
-      who == 'player' ? (this.healthMonster = this.healthMonster - dmg) : (this.healthPlayer = this.healthPlayer - dmg);
+      who == 'player' ? (this.healthMonster -= dmg) : (this.healthPlayer -= dmg);
       // Save atk Log
       this.logDamage.push({
         type: (who + '-turn'),
