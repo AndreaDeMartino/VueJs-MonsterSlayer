@@ -8,15 +8,15 @@ new Vue({
     gameIsRunning: false,
   },
   methods: {
-    attack (){
+    attack(){
       if (this.healthPlayer > 0 && this.healthMonster > 0){
         this.whoAttack ('player', ( Math.floor(Math.random() * 10) + 1) );
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 15) + 3) );
+        this.whoAttack ('monster', this.monsterAtk() );
         this.whoWin();
         this.counter--;
       }
     },
-    whoAttack (who,dmg,heal){
+    whoAttack(who,dmg,heal){
       // Remove Health
       who == 'player' ? (this.healthMonster -= dmg) : (this.healthPlayer -= dmg);
       // Save atk Log
@@ -30,7 +30,7 @@ new Vue({
         this.logDamage[this.logDamage.length -1].type = "player-turn";
       }
     },
-    whoWin (){
+    whoWin(){
       // Send Alert when someone win
       if (this.healthPlayer <= 0){
         this.gameIsRunning = false;
@@ -44,30 +44,30 @@ new Vue({
         },500) 
       };
     },
-    specialAtk (){
+    specialAtk(){
       if (this.counter <= 0){
         this.whoAttack ('player', 20 );
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 15)) + 3 );
+        this.whoAttack ('monster', this.monsterAtk() );
         this.whoWin();
         this.counter = 3;
       } else {
         alert ('You must wait ' + (this.counter) + ' turn before do this special atk');
       }
     },
-    heal (){
+    heal(){
       if (this.healthPlayer < 100){
         this.whoAttack ('monster', ( Math.floor(Math.random() * 10) * -1),heal);
-        this.whoAttack ('monster', ( Math.floor(Math.random() * 15)) + 3 );
+        this.whoAttack ('monster', this.monsterAtk() );
         this.whoWin();
       } else {
         alert('Your Healt is already full')
       }
     },
-    newGame() {
+    newGame(){
       this.reset('Good Luck');
       this.gameIsRunning = true;
     },
-    giveUp() {
+    giveUp(){
       this.reset('Monster Win');
     },
     reset (text){
@@ -77,5 +77,8 @@ new Vue({
       this.counter = 3;
       alert(text);
     },
+    monsterAtk(){
+      return (Math.floor(Math.random() * 15) + 3);
+    }
   }
 })
