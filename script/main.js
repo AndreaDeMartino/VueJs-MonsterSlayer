@@ -5,6 +5,7 @@ new Vue({
     healthMonster: 100,
     logDamage: [],
     counter: 3,
+    gameIsRunning: false,
   },
   methods: {
     attack (){
@@ -32,10 +33,12 @@ new Vue({
     whoWin (){
       // Send Alert when someone win
       if (this.healthPlayer <= 0){
+        this.gameIsRunning = false;
         setTimeout(function(){
           alert ('Player Lose');
         },500) 
       } else if (this.healthMonster <= 0){
+          this.gameIsRunning = false;
           setTimeout(function(){
             alert ('Monster Lose');
         },500) 
@@ -62,6 +65,7 @@ new Vue({
     },
     newGame() {
       this.reset('Good Luck');
+      this.gameIsRunning = true;
     },
     giveUp() {
       this.reset('Monster Win');

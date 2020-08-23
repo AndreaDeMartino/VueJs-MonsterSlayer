@@ -30,14 +30,14 @@
     </section>
 
     <!-- New Game -->
-    <section class="row controls">
+    <section class="row controls" v-if="!gameIsRunning">
         <div class="small-12 columns">
             <button id="start-game" @click="newGame()">START NEW GAME</button>
         </div>
     </section>
 
     <!-- Cta -->
-    <section class="row controls">
+    <section class="row controls" v-else>
         <div class="small-12 columns">
             <button id="attack" @click="attack()">ATTACK</button>
             <button id="special-attack" @click="specialAtk()">SPECIAL ATTACK</button>
