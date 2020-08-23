@@ -60,11 +60,12 @@ button {
 }
 
 #start-game {
-    background-color: #aaffb0;
+    background-color: #45c0e6;
+    color: rgb(255, 255, 255);
 }
 
 #start-game:hover {
-    background-color: #76ff7e;
+    background-color: #3e9ab6;
 }
 
 #attack {

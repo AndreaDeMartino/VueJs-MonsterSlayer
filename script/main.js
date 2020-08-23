@@ -64,7 +64,7 @@ new Vue({
       }
     },
     newGame(){
-      this.reset('Good Luck');
+      this.reset('Try to beat the monster, good luck');
       this.gameIsRunning = true;
     },
     giveUp(){
@@ -79,7 +79,7 @@ new Vue({
       alert(text);
     },
     monsterAtk(){
-      return (Math.floor(Math.random() * 15) + 3);
+      return (Math.floor(Math.random() * 15) + 2);
     }
   }
 })
