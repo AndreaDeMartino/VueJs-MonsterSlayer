@@ -58,6 +58,7 @@ new Vue({
       if (this.healthPlayer < 100){
         this.whoAttack ('monster', ( Math.floor(Math.random() * 15) * -1),heal);
         this.whoAttack ('monster', this.monsterAtk() );
+        this.counter--;
         this.whoWin();
       } else {
         alert('Your Healt is already full')
